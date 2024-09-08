@@ -1,40 +1,47 @@
-function get_human_choice() {
-    var choice = prompt("0=Rock , 1=Paper , 2=Scissors    Kindly give input");
-    return choice;
+function playRound(num){
+    var computerChoice=getComputerChoice();
+    if ((num==0 && computerChoice==2) || (num==1 && computerChoice==0) || (num==2 && computerChoice==1)){
+        return 1
     }
-function get_computer_choice(){
-    var c_choice;
-    c_choice=Math.random();
-    return c_choice;
-}
-function play(human_choice,comp_choice_name){
-    if ((human_choice==0   & comp_choice_name==1)  ||  (human_choice==1   & comp_choice_name==2)  || (human_choice==2   & comp_choice_name==0))    {
-        console.log("YOU LOST ");
+    else if (num==computerChoice){
+        return 0
     }
     else{
-        console.log("YOU WON");
+        return -1
     }
 }
-var human_choice=get_human_choice();
-var flag=false;
-while (flag == false){//error handling
-    if (human_choice !=0  & human_choice!=1  & human_choice!=2  ){
-        human_choice=prompt("Incorrect respnse kindly give correct response        0=Rock , 1=Paper , 2=Scissors");
+function getComputerChoice(){
+    var num=Math.random()
+    if (num<=0.3){
+        return 0 // returns rock
+    }
+    else if(num>0.3 && num<=0.6){
+        return 1 //paper
     }
     else{
-        flag=true;
-        break;
-    } 
+        return 2 //scissor
+    }
 }
-var comp_choice=get_computer_choice();
-if (comp_choice<=0.3){
-    var comp_choice_name=0;
-}
-else if (comp_choice>0.3 & comp_choice<=0.6){
-    var comp_choice_name=1;
-}
-else{
-    var comp_choice_name=2;
-}
-console.log(comp_choice)
-play(human_choice,comp_choice_name);
+var ressult = 0;
+var timesClicked=0;
+var showresult = document.getElementById('result');
+showresult.innerText = `Your Result = ${ressult}`;
+
+const buttons=document.querySelectorAll("button");
+
+buttons.forEach((button)=>{
+    button.addEventListener('click',()=>{
+        ressult+=playRound(button.id);
+        showresult.innerText = `Your Result = ${ressult}`;
+        timesClicked+=1;
+        if (timesClicked>=5){
+            if (ressult>0){
+                showresult.innerText+="..            You Won WINNER"
+            }
+            else{
+                showresult.innerText+="..             You LOST LOSER"
+            }
+        }
+    });
+});
+

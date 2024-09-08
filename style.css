@@ -1,0 +1,49 @@
+body{
+    background-image: url(v960-ning-11.jpg);
+    background-attachment: fixed;
+    background-size: auto 200%;
+    background-repeat: no-repeat;
+}
+.body{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    font-size: 100px;
+    font-weight: bolder;
+    margin-bottom: 100px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 40px;
+}
+.b{
+    font-size: 40px;
+    padding: 10px;
+    border-radius: 15%;
+    background-color:  #dd7973;
+    color: white;
+    font-weight: bolder;
+    border-color: #dd7973;
+}
+button:hover{
+    background-color: gainsboro;
+}
+
+#result{
+    display: flex;
+    font-weight: bolder;
+    font-size: 45px;    
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
