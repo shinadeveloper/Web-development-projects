@@ -1,0 +1,42 @@
+body{
+    background-color: lightblue;
+    margin: 0;
+}
+.header{
+    background-color: rgb(233, 35, 233);
+    display: flex;
+    align-self: stretch;
+    justify-self: stretch;
+    font-size: 45px;
+    width: 100%;
+    color: aliceblue;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
+    font-weight: 900;
+    margin: 0;
+    margin-bottom: 50px;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    justify-items: center;
+}
+.container{
+    display: flex;
+    width: 500px;
+    height: 500px;
+    justify-content: stretch;
+    align-content: stretch;
+    justify-items: stretch;
+    align-items: stretch;
+    background-color: black;
+}
+.childContainer{
+    background-color: aliceblue;
+    border: 1px solid black;
+}
