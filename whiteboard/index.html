@@ -4,16 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXEL BOARD</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            width: 500px;
+            height: 500px;
+        }
+        .childContainer {
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         WELCOME TO PIXEL BOARD
     </div>
     <div class="content">
-        <div class="container">
-            
-        </div>
+        <div class="container"></div>
     </div>
+    <script>
+        function createDivs(num, parentClass) {
+            if (num > 100 || num < 1) {
+                alert("You have entered wrong input. Kindly input a number between 1 and 100.");
+                return;
+            }
+
+            var parentElement = document.querySelector(`.${parentClass}`);
+            if (!parentElement) {
+                console.error("Parent element not found");
+                return;
+            }
+
+            parentElement.innerHTML = ''; // Clear existing content
+
+            var fragment = document.createDocumentFragment();
+            for (var i = 0; i < num; i++) {
+                for (var j = 0; j < num; j++) {
+                    var div = document.createElement("div");
+                    div.className = "childContainer";
+                    div.style.height = Math.floor(500 / num) + "px";
+                    div.style.width = Math.floor(500 / num) + "px";
+                    div.addEventListener('click', function() {
+                        this.style.backgroundColor = "white"; // Changed from color to backgroundColor
+                    });
+                    fragment.appendChild(div);
+                }
+            }
+            parentElement.appendChild(fragment);
+            console.log(`Appended ${num * num} child elements to the parent element.`);
+        }
+
+        // Example usage
+        var containerClass = "container"; // Pass the class name as a string
+        createDivs(15, containerClass);
+    </script>
 </body>
 </html>

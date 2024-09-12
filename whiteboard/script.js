@@ -1,23 +1,19 @@
 function createDivs(num,parent){
-    if ((num>100) || (num<1)) {
-        alert("You have entered wrong input      kindly input between 1 and 100")
-        return "";
-    }
-    var i=0,j=0;
-    mainNode=document.getElementsByClassName(parent)
-    for (i;i<num;i++){
-        for(j;j<num;j++){
-            const divh=document.createElement("div");
-            divh.setAttribute("class","childContainer");
-            mainNode.appendChild(divh)
+    var mainNode=document.getElementsByClassName(parent);
+    for (var i=0;i<num;i++){
+        for(var j=0;j<num;j++){
+            var div=document.createElement("div");
+            div.setAttribute("class","childContainer");
+            div.style.color="white";
+            div.style.borderColor="black";
+            mainNode.appendChild(div);
+
         }
     }
-    return childContainer; 
-    
 }
-var container=document.getElementsByClassName("container")
-var childContainer=createDivs(5,container);
-
-
+var container=document.getElementsByClassName(".container");
+createDivs(5,container);
+var childContainer=document.getElementsByClassName("childContainer")
 childContainer.style.color="white";
 
+        
